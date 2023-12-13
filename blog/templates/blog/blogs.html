@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block sayfa_ismi %} blogs {% endblock %} 
+
+{% block acilis %}
+{% for blog in blogs %}
+{% include 'blog/parsles/_blog.html' %}
+{% endfor %}
+<h1>Blog sayfası</h1>
+{% endblock %}
+            

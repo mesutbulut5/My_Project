@@ -1,0 +1,45 @@
+<!- #fakat bu sayfayla baglanti kurabilmek icin bir baglanti cumlesi yazmamiz lazim.->
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_file %},
+<link rel= "stylesheet" href="{% static 'giris/css/style.css'%}">
+{% endblock %}
+
+{% block sayfa_ismi %} Login {% endblock %} 
+
+{% block acilis %}
+<div class="container mt-3">
+   <div class="col">
+    
+    <h1>Login</h1>
+    <hr>
+    <form  method ="POST">
+      {% csrf_token %}
+      {% if error %}
+        <div class="alert alert-danger">
+          {{error   }}
+        </div>
+
+      
+      
+      {% endif %}
+        <div class="mb-3">
+          <label  class="form-label" for="username">Kullanıcı Adı</label>
+          <input type="text" class="form-control"  name="username" >  
+        </div>
+        <div class="mb-3">
+            <label  class="form-label" for="password">Parola</label>
+            <input type="password" class="form-control"  name="password" >  
+          </div>
+         
+        <button type="submit" value= "Login" class="btn btn-primary">Submit</button>
+      </form>
+   </div>
+</div>
+
+{% endblock %}
+
+{% block js_file %},
+<link rel= "stylesheet" href="{% static 'giris/js/script.js'%}">
+{% endblock %}

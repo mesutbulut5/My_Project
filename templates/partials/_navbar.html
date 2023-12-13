@@ -1,0 +1,47 @@
+<nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+    <div class="container">
+        <a class = "navbar-brand" href="">Anasayfa</a>
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+                <a class = "nav-link col-md-30" href="{% url 'anasayfa' %}">Renkler</a>
+            </li>
+            <li class="nav-item">
+                <a class = "nav-link" href="{% url 'renkler' %}">İlham Veren Fikirler</a>
+            </li>
+            <li class="nav-item">
+                <a class = "nav-link" href="{% url 'anasayfa' %}">Profesyonel Ürünler</a>
+            </li>
+            <li class="nav-item">
+                <a class = "nav-link" href="{% url 'renkler' %}">Hizmetler</a>
+            </li>
+            <li class="nav-item">
+                <a class = "nav-link" href="{% url 'anasayfa' %}">Yardım</a>
+            </li>
+            <li class="nav-item">
+                <a class = "nav-link" href="{% url 'renkler' %}">İletişim</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class = "nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class = "nav-link" href="">Welcome,{{user.get_full_name|title}}</a>
+                </li>
+            {% else %}
+
+                <li class="nav-item">
+                    <a class = "nav-link" href="{% url 'register' %}">Recister</a>
+                </li>
+                <li class="nav-item">
+                    <a class = "nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+            {% endif %}
+            
+            
+           
+        </ul>
+    </div>
+</nav>

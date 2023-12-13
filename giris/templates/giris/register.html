@@ -1,0 +1,61 @@
+<!- #fakat bu sayfayla baglanti kurabilmek icin bir baglanti cumlesi yazmamiz lazim.->
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_file %},
+<link rel= "stylesheet" href="{% static 'giris/css/style.css'%}">
+{% endblock %}
+
+{% block sayfa_ismi %} Register {% endblock %} 
+
+{% block acilis %}
+<div class="container mt-3">
+    
+</div>
+
+<div class="col">
+    
+    <h1>Recister</h1>
+    <hr>
+    <form  method ="POST">
+      {% csrf_token %}
+      {% if error %}
+        <div class="alert alert-danger">
+          {{error   }}
+        </div>
+
+      
+      
+      {% endif %}
+        <div class="mb-3">
+          <label  class="form-label" for="username">Kullanıcı Adı</label>
+          <input type="text" class="form-control"  name="username",value="{{username}}">  
+        </div>
+        <div class="mb-3">
+            <label  class="email" for="username">E Mail</label>
+            <input type="email" class="form-control"  name="email",value="{{email}}" >  
+          </div>
+          <div class="mb-3">
+            <label  class="form-label" for="firstname">Adı</label>
+            <input type="text" class="form-control"  name="firstname",value="{{firstname}}" >  
+          </div>
+          <div class="mb-3">
+            <label  class="form-label" for="lastname">Soy Adı</label>
+            <input type="text" class="form-control"  name="lastname",value="{{lastname}}" >  
+          </div>
+        <div class="mb-3">
+            <label  class="form-label" for="password">Parola</label>
+            <input type="password" class="form-control"  name="password" >  
+          </div>
+          <div class="mb-3">
+            <label  class="form-label" for="repassword">Parola Tekrar</label>
+            <input type="password" class="form-control"  name="repassword" >  
+          </div>
+        <button type="submit" value= "Register" class="btn btn-primary">Submit</button>
+      </form>
+   </div>
+{% endblock %}
+
+{% block js_file %},
+<link rel= "stylesheet" href="{% static 'giris/js/script.js'%}">
+{% endblock %}

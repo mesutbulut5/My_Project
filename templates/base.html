@@ -1,0 +1,27 @@
+<!–#Bu demek oluyorki static klasörünün içerisindeki
+# dosyalar aktif olsun  yani style.css dosyasina ulasabiliyoruz.->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block sayfa_ismi %} {% endblock %} | Blogapp</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<!–#bu kisim ayni olan sayfalarin bir kismi tabikide farkli kodlarini bu sekilde cagiriyoruz. 
+#Bu nedenle kos kalabaligi olmuyor sadece farkli kismi buraya tanitiyoruz.
+#Fakat ayni block acilis kismi diger sayfalardada olacak kodlar onlarin arasinda olacak.->
+<body>
+    <!-Burada _navbar.html sayfasını dahil ediyoruz. ->
+   {% include  'partials/_navbar.html' %}
+   <input type="file" name="eula" accept="application/pdf,application/vnd.ms-excel">
+    {% block acilis %}
+    {% endblock %}
+    <script src="{% static 'css/bootstrap.min.js' %}"></script>
+    <script src="{% static 'css/bootstrap.min.css' %}"></script>
+    {% block javascript %}
+    {% endblock %}
+</body>
+</html>
